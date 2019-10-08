@@ -29,6 +29,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IReportService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -53,6 +82,12 @@
   <wsdl:message name="ISimpleService_OneWayOperationDemo_InputMessage">
     <wsdl:part name="parameters" element="tns:OneWayOperationDemo" />
   </wsdl:message>
+  <wsdl:message name="IReportService_ProcessReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ProcessReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessReportResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISimpleService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/DoWork" message="tns:ISimpleService_DoWork_InputMessage" />
@@ -67,6 +102,12 @@
     </wsdl:operation>
     <wsdl:operation name="OneWayOperationDemo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/OneWayOperationDemo" message="tns:ISimpleService_OneWayOperationDemo_InputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IReportService">
+    <wsdl:operation name="ProcessReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ProcessReport" message="tns:IReportService_ProcessReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ProcessReportResponse" message="tns:IReportService_ProcessReport_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISimpleService" type="tns:ISimpleService">
@@ -103,11 +144,33 @@
       </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IReportService" type="tns:IReportService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IReportService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ProcessReport">
+      <soap12:operation soapAction="http://tempuri.org/IReportService/ProcessReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="SimpleService">
     <wsdl:port name="NetTcpBinding_ISimpleService" binding="tns:NetTcpBinding_ISimpleService">
       <soap12:address location="net.tcp://localhost:8090/GxService" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/GxService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>NISHANT\user</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IReportService" binding="tns:NetTcpBinding_IReportService">
+      <soap12:address location="net.tcp://localhost:8090/GxReportService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/GxReportService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>NISHANT\user</Upn>
         </Identity>

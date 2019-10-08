@@ -13,11 +13,13 @@ namespace DNAClient
     public partial class Form1 : Form
     {
         GxService.SimpleServiceClient client;
+        GxService.IReportService reportServiceClient;
 
         public Form1()
         {
             InitializeComponent();
             client = new GxService.SimpleServiceClient();
+            reportServiceClient = new GxService.ReportServiceClient();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +55,11 @@ namespace DNAClient
         private void button4_Click(object sender, EventArgs e)
         {
             lstResult.Items.Clear();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            reportServiceClient.ProcessReport();
         }
     }
 }

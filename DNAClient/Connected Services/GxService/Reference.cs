@@ -99,4 +99,51 @@ namespace DNAClient.GxService {
             return base.Channel.OneWayOperationDemoAsync();
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GxService.IReportService")]
+    public interface IReportService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportService/ProcessReport", ReplyAction="http://tempuri.org/IReportService/ProcessReportResponse")]
+        void ProcessReport();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportService/ProcessReport", ReplyAction="http://tempuri.org/IReportService/ProcessReportResponse")]
+        System.Threading.Tasks.Task ProcessReportAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IReportServiceChannel : DNAClient.GxService.IReportService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ReportServiceClient : System.ServiceModel.ClientBase<DNAClient.GxService.IReportService>, DNAClient.GxService.IReportService {
+        
+        public ReportServiceClient() {
+        }
+        
+        public ReportServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ReportServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ReportServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ReportServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void ProcessReport() {
+            base.Channel.ProcessReport();
+        }
+        
+        public System.Threading.Tasks.Task ProcessReportAsync() {
+            return base.Channel.ProcessReportAsync();
+        }
+    }
 }

@@ -34,4 +34,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ProcessReport">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessReportResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
