@@ -44,6 +44,15 @@
   <wsdl:message name="ISimpleService_GetMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="ISimpleService_RequestReplyOperation_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestReplyOperation" />
+  </wsdl:message>
+  <wsdl:message name="ISimpleService_RequestReplyOperation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestReplyOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISimpleService_OneWayOperationDemo_InputMessage">
+    <wsdl:part name="parameters" element="tns:OneWayOperationDemo" />
+  </wsdl:message>
   <wsdl:portType name="ISimpleService">
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/DoWork" message="tns:ISimpleService_DoWork_InputMessage" />
@@ -51,6 +60,13 @@
     <wsdl:operation name="GetMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/GetMessage" message="tns:ISimpleService_GetMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISimpleService/GetMessageResponse" message="tns:ISimpleService_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestReplyOperation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/RequestReplyOperation" message="tns:ISimpleService_RequestReplyOperation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimpleService/RequestReplyOperationResponse" message="tns:ISimpleService_RequestReplyOperation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OneWayOperationDemo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/OneWayOperationDemo" message="tns:ISimpleService_OneWayOperationDemo_InputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISimpleService" type="tns:ISimpleService">
@@ -70,6 +86,21 @@
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestReplyOperation">
+      <soap12:operation soapAction="http://tempuri.org/ISimpleService/RequestReplyOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OneWayOperationDemo">
+      <soap12:operation soapAction="http://tempuri.org/ISimpleService/OneWayOperationDemo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="SimpleService">

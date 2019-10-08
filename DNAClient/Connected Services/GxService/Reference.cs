@@ -26,6 +26,18 @@ namespace DNAClient.GxService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetMessage", ReplyAction="http://tempuri.org/ISimpleService/GetMessageResponse")]
         System.Threading.Tasks.Task<string> GetMessageAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/RequestReplyOperation", ReplyAction="http://tempuri.org/ISimpleService/RequestReplyOperationResponse")]
+        string RequestReplyOperation();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/RequestReplyOperation", ReplyAction="http://tempuri.org/ISimpleService/RequestReplyOperationResponse")]
+        System.Threading.Tasks.Task<string> RequestReplyOperationAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/OneWayOperationDemo")]
+        void OneWayOperationDemo();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/OneWayOperationDemo")]
+        System.Threading.Tasks.Task OneWayOperationDemoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +81,22 @@ namespace DNAClient.GxService {
         
         public System.Threading.Tasks.Task<string> GetMessageAsync() {
             return base.Channel.GetMessageAsync();
+        }
+        
+        public string RequestReplyOperation() {
+            return base.Channel.RequestReplyOperation();
+        }
+        
+        public System.Threading.Tasks.Task<string> RequestReplyOperationAsync() {
+            return base.Channel.RequestReplyOperationAsync();
+        }
+        
+        public void OneWayOperationDemo() {
+            base.Channel.OneWayOperationDemo();
+        }
+        
+        public System.Threading.Tasks.Task OneWayOperationDemoAsync() {
+            return base.Channel.OneWayOperationDemoAsync();
         }
     }
 }
