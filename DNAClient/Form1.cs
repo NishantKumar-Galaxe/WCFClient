@@ -32,14 +32,21 @@ namespace DNAClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            lstResult.Items.Add($"Request-Reply Operation Started at @ {DateTime.Now.ToString()}");
-            button2.Enabled = false;
+            
 
+            //lstResult.Items.Add($"Request-Reply Operation Started at @ {DateTime.Now.ToString()}");
+            //button2.Enabled = false;
+
+            DateTime dtStart = DateTime.Now;
             lstResult.Items.Add(client.RequestReplyOperation());
-            button2.Enabled = true;
+            DateTime dtEnd = DateTime.Now;
+            lstResult.Items.Add(dtEnd.Subtract(dtStart).Seconds.ToString() + " seconds processing time at client");
+            lstResult.Items.Add("\n");
 
-            lstResult.Items.Add($"Request-Reply Operation completed at @ {DateTime.Now.ToString()}");
-            lstResult.Items.Add("");
+            //button2.Enabled = true;
+
+            //lstResult.Items.Add($"Request-Reply Operation completed at @ {DateTime.Now.ToString()}");
+            //lstResult.Items.Add("");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -65,10 +72,13 @@ namespace DNAClient
             reportServiceClient.ProcessReport();
         }
 
-        private void Button6_Click(object sender, EventArgs e)
+      
+        private void button7_Click(object sender, EventArgs e)
         {
-            var url = txtServiceURL.Text;
-            
+            //var url = txtServiceURL.Text;
+            DateTime dtStart = DateTime.Now;
+
+            var url = "http://localhost:8085/GxRestService/paybill";
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
@@ -83,7 +93,10 @@ namespace DNAClient
                 }
             }
             //var releases = JArray.Parse(content);
-            txtRestResult.Text = content;
+            DateTime dtEnd = DateTime.Now;
+            lstResult.Items.Add(dtEnd.Subtract(dtStart).Seconds.ToString() + " seconds processing time at Client");
+            lstResult.Items.Add("\n");
+            lstResult.Items.Add(content);
         }
     }
 }
