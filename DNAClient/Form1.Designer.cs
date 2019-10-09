@@ -36,6 +36,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtServiceURL = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtRestResult = new System.Windows.Forms.TextBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -94,7 +100,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(434, 130);
+            this.button4.Location = new System.Drawing.Point(419, 105);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(111, 23);
             this.button4.TabIndex = 7;
@@ -112,11 +118,60 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(93, 49);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(242, 23);
+            this.button6.TabIndex = 9;
+            this.button6.Text = "Invoke Service";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtRestResult);
+            this.groupBox1.Controls.Add(this.txtServiceURL);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(16, 328);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(687, 164);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "REST";
+            // 
+            // txtServiceURL
+            // 
+            this.txtServiceURL.Location = new System.Drawing.Point(93, 23);
+            this.txtServiceURL.Name = "txtServiceURL";
+            this.txtServiceURL.Size = new System.Drawing.Size(588, 20);
+            this.txtServiceURL.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Service URL";
+            // 
+            // txtRestResult
+            // 
+            this.txtRestResult.Location = new System.Drawing.Point(93, 78);
+            this.txtRestResult.Multiline = true;
+            this.txtRestResult.Name = "txtRestResult";
+            this.txtRestResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtRestResult.Size = new System.Drawing.Size(588, 80);
+            this.txtRestResult.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 373);
+            this.ClientSize = new System.Drawing.Size(715, 504);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -127,6 +182,8 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +199,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtServiceURL;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtRestResult;
     }
 }
 
