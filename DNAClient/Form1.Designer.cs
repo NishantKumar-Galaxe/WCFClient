@@ -41,7 +41,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 65);
+            this.button1.Location = new System.Drawing.Point(611, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(93, 26);
+            this.txtResult.Location = new System.Drawing.Point(93, 23);
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(339, 20);
             this.txtResult.TabIndex = 2;
@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 26);
+            this.label1.Location = new System.Drawing.Point(13, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 3;
@@ -68,16 +68,16 @@
             // lstResult
             // 
             this.lstResult.FormattingEnabled = true;
-            this.lstResult.Location = new System.Drawing.Point(12, 94);
+            this.lstResult.Location = new System.Drawing.Point(12, 68);
             this.lstResult.Name = "lstResult";
-            this.lstResult.Size = new System.Drawing.Size(401, 95);
+            this.lstResult.Size = new System.Drawing.Size(710, 394);
             this.lstResult.TabIndex = 4;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 205);
+            this.button2.Location = new System.Drawing.Point(11, 469);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(401, 23);
+            this.button2.Size = new System.Drawing.Size(173, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Non Restful Service Demo";
             this.button2.UseVisualStyleBackColor = true;
@@ -85,9 +85,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 263);
+            this.button3.Location = new System.Drawing.Point(369, 469);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(401, 23);
+            this.button3.Size = new System.Drawing.Size(173, 23);
             this.button3.TabIndex = 6;
             this.button3.Text = "OneWayServiceDemo";
             this.button3.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(419, 105);
+            this.button4.Location = new System.Drawing.Point(611, 39);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(111, 23);
             this.button4.TabIndex = 7;
@@ -105,9 +105,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 292);
+            this.button5.Location = new System.Drawing.Point(548, 469);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(401, 23);
+            this.button5.Size = new System.Drawing.Size(173, 23);
             this.button5.TabIndex = 8;
             this.button5.Text = "TwoWayBindingDemo";
             this.button5.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 234);
+            this.button7.Location = new System.Drawing.Point(190, 469);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(401, 23);
+            this.button7.Size = new System.Drawing.Size(173, 23);
             this.button7.TabIndex = 11;
             this.button7.Text = "Restful Service Demo";
             this.button7.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 504);
+            this.ClientSize = new System.Drawing.Size(734, 504);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
