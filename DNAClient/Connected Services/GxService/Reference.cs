@@ -146,4 +146,51 @@ namespace DNAClient.GxService {
             return base.Channel.ProcessReportAsync();
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GxService.IRestfulDNA")]
+    public interface IRestfulDNA {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_Rest", ReplyAction="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestResponse")]
+        string RequestReplyOperation_Rest();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_Rest", ReplyAction="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestResponse")]
+        System.Threading.Tasks.Task<string> RequestReplyOperation_RestAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRestfulDNAChannel : DNAClient.GxService.IRestfulDNA, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RestfulDNAClient : System.ServiceModel.ClientBase<DNAClient.GxService.IRestfulDNA>, DNAClient.GxService.IRestfulDNA {
+        
+        public RestfulDNAClient() {
+        }
+        
+        public RestfulDNAClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RestfulDNAClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RestfulDNAClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RestfulDNAClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public string RequestReplyOperation_Rest() {
+            return base.Channel.RequestReplyOperation_Rest();
+        }
+        
+        public System.Threading.Tasks.Task<string> RequestReplyOperation_RestAsync() {
+            return base.Channel.RequestReplyOperation_RestAsync();
+        }
+    }
 }
