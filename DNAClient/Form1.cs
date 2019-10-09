@@ -43,11 +43,11 @@ namespace DNAClient
             long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
 
             double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
-
+            lstResult.Items.Add("Non Restful Service Call:");
             lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add("\n");
             lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-
+            lstResult.Items.Add("-------------------------------------------");
+            lstResult.Items.Add("\n");
             //button2.Enabled = true;
 
             //lstResult.Items.Add($"Request-Reply Operation completed at @ {DateTime.Now.ToString()}");
@@ -103,15 +103,14 @@ namespace DNAClient
             long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
             double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
 
+            lstResult.Items.Add("Restful Service Call:");
             lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add("\n");
             lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-
-            lstResult.Items.Add("\n");
-
             //lstResult.Items.Add(((double)(dtEnd.Subtract(dtStart).Seconds)).ToString() + " seconds processing time at Client");
             //lstResult.Items.Add("\n");
             lstResult.Items.Add(content);
+            lstResult.Items.Add("-------------------------------------------");
+            lstResult.Items.Add("\n");
         }
     }
 }
