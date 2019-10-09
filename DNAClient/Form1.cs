@@ -32,7 +32,7 @@ namespace DNAClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+
 
             //lstResult.Items.Add($"Request-Reply Operation Started at @ {DateTime.Now.ToString()}");
             //button2.Enabled = false;
@@ -40,8 +40,13 @@ namespace DNAClient
             DateTime dtStart = DateTime.Now;
             lstResult.Items.Add(client.RequestReplyOperation());
             DateTime dtEnd = DateTime.Now;
-            lstResult.Items.Add(dtEnd.Subtract(dtStart).Seconds.ToString() + " seconds processing time at client");
+            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
+
+            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
+
+            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
             lstResult.Items.Add("\n");
+            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
 
             //button2.Enabled = true;
 
@@ -72,7 +77,7 @@ namespace DNAClient
             reportServiceClient.ProcessReport();
         }
 
-      
+
         private void button7_Click(object sender, EventArgs e)
         {
             //var url = txtServiceURL.Text;
@@ -94,8 +99,18 @@ namespace DNAClient
             }
             //var releases = JArray.Parse(content);
             DateTime dtEnd = DateTime.Now;
-            lstResult.Items.Add(dtEnd.Subtract(dtStart).Seconds.ToString() + " seconds processing time at Client");
+
+            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
+            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
+
+            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
             lstResult.Items.Add("\n");
+            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
+
+            lstResult.Items.Add("\n");
+
+            //lstResult.Items.Add(((double)(dtEnd.Subtract(dtStart).Seconds)).ToString() + " seconds processing time at Client");
+            //lstResult.Items.Add("\n");
             lstResult.Items.Add(content);
         }
     }
