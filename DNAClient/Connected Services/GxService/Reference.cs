@@ -9,7 +9,38 @@
 //------------------------------------------------------------------------------
 
 namespace DNAClient.GxService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmployeeDetails", Namespace="http://schemas.datacontract.org/2004/07/DataAccessLaer")]
+    [System.SerializableAttribute()]
+    public partial class EmployeeDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GxService.ISimpleService")]
@@ -32,6 +63,12 @@ namespace DNAClient.GxService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/RequestReplyOperation", ReplyAction="http://tempuri.org/ISimpleService/RequestReplyOperationResponse")]
         System.Threading.Tasks.Task<string> RequestReplyOperationAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/RequestReplyOperationV1", ReplyAction="http://tempuri.org/ISimpleService/RequestReplyOperationV1Response")]
+        DNAClient.GxService.EmployeeDetails[] RequestReplyOperationV1();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/RequestReplyOperationV1", ReplyAction="http://tempuri.org/ISimpleService/RequestReplyOperationV1Response")]
+        System.Threading.Tasks.Task<DNAClient.GxService.EmployeeDetails[]> RequestReplyOperationV1Async();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/OneWayOperationDemo")]
         void OneWayOperationDemo();
@@ -89,6 +126,14 @@ namespace DNAClient.GxService {
         
         public System.Threading.Tasks.Task<string> RequestReplyOperationAsync() {
             return base.Channel.RequestReplyOperationAsync();
+        }
+        
+        public DNAClient.GxService.EmployeeDetails[] RequestReplyOperationV1() {
+            return base.Channel.RequestReplyOperationV1();
+        }
+        
+        public System.Threading.Tasks.Task<DNAClient.GxService.EmployeeDetails[]> RequestReplyOperationV1Async() {
+            return base.Channel.RequestReplyOperationV1Async();
         }
         
         public void OneWayOperationDemo() {
@@ -156,6 +201,12 @@ namespace DNAClient.GxService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_Rest", ReplyAction="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestResponse")]
         System.Threading.Tasks.Task<string> RequestReplyOperation_RestAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestV1", ReplyAction="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestV1Response")]
+        DNAClient.GxService.EmployeeDetails[] RequestReplyOperation_RestV1();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestV1", ReplyAction="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestV1Response")]
+        System.Threading.Tasks.Task<DNAClient.GxService.EmployeeDetails[]> RequestReplyOperation_RestV1Async();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -191,6 +242,14 @@ namespace DNAClient.GxService {
         
         public System.Threading.Tasks.Task<string> RequestReplyOperation_RestAsync() {
             return base.Channel.RequestReplyOperation_RestAsync();
+        }
+        
+        public DNAClient.GxService.EmployeeDetails[] RequestReplyOperation_RestV1() {
+            return base.Channel.RequestReplyOperation_RestV1();
+        }
+        
+        public System.Threading.Tasks.Task<DNAClient.GxService.EmployeeDetails[]> RequestReplyOperation_RestV1Async() {
+            return base.Channel.RequestReplyOperation_RestV1Async();
         }
     }
 }

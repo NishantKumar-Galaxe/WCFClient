@@ -76,10 +76,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\GxService\DNAClient.GxService.EmployeeDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\GxService\item.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\GxService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\GxService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\GxService\SimpleService.wsdl" />

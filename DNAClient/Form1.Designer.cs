@@ -32,11 +32,13 @@
             this.txtResult = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lstResult = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_V1NonRest = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btn_V1RestDemo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -73,15 +75,15 @@
             this.lstResult.Size = new System.Drawing.Size(710, 394);
             this.lstResult.TabIndex = 4;
             // 
-            // button2
+            // btn_V1NonRest
             // 
-            this.button2.Location = new System.Drawing.Point(11, 469);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Non Restful Service Demo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_V1NonRest.Location = new System.Drawing.Point(11, 498);
+            this.btn_V1NonRest.Name = "btn_V1NonRest";
+            this.btn_V1NonRest.Size = new System.Drawing.Size(173, 23);
+            this.btn_V1NonRest.TabIndex = 5;
+            this.btn_V1NonRest.Text = "V1 Non Restful Service Demo";
+            this.btn_V1NonRest.UseVisualStyleBackColor = true;
+            this.btn_V1NonRest.Click += new System.EventHandler(this.Btn_V1NonRest_Click);
             // 
             // button3
             // 
@@ -123,16 +125,38 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 469);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(173, 23);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Non Restful Service Demo";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_V1RestDemo
+            // 
+            this.btn_V1RestDemo.Location = new System.Drawing.Point(190, 498);
+            this.btn_V1RestDemo.Name = "btn_V1RestDemo";
+            this.btn_V1RestDemo.Size = new System.Drawing.Size(173, 23);
+            this.btn_V1RestDemo.TabIndex = 11;
+            this.btn_V1RestDemo.Text = "V1 Restful Service Demo";
+            this.btn_V1RestDemo.UseVisualStyleBackColor = true;
+            this.btn_V1RestDemo.Click += new System.EventHandler(this.Btn_V1RestDemo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 504);
+            this.ClientSize = new System.Drawing.Size(730, 540);
+            this.Controls.Add(this.btn_V1RestDemo);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btn_V1NonRest);
             this.Controls.Add(this.lstResult);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtResult);
@@ -150,11 +174,13 @@
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstResult;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_V1NonRest;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn_V1RestDemo;
     }
 }
 
