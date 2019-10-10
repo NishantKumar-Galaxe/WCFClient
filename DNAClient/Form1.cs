@@ -17,6 +17,7 @@ namespace DNAClient
     {
         GxService.SimpleServiceClient client;
         GxService.IReportService reportServiceClient;
+        StringBuilder sb = new StringBuilder();
 
         public Form1()
         {
@@ -25,158 +26,31 @@ namespace DNAClient
             reportServiceClient = new GxService.ReportServiceClient();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            txtResult.Text = client.GetMessage();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //lstResult.Items.Add($"Request-Reply Operation Started at @ {DateTime.Now.ToString()}");
-            //button2.Enabled = false;
-
-            DateTime dtStart = DateTime.Now;
-            lstResult.Items.Add(client.RequestReplyOperation());
-            DateTime dtEnd = DateTime.Now;
-            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
-
-            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
-            lstResult.Items.Add("Non Restful Service Call:");
-            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            lstResult.Items.Add("-------------------------------------------");
-            lstResult.Items.Add("\n");
-            //button2.Enabled = true;
-
-            //lstResult.Items.Add($"Request-Reply Operation completed at @ {DateTime.Now.ToString()}");
-            //lstResult.Items.Add("");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            lstResult.Items.Add($"One Way Operation Started at @ {DateTime.Now.ToString()}");
-            button3.Enabled = false;
-
-            //client is not blocked, service request is in service queue.
-            client.OneWayOperationDemo();
-
-            button3.Enabled = true;
-            lstResult.Items.Add($"One Way Operation completed at @ {DateTime.Now.ToString()}");
-            lstResult.Items.Add("");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            lstResult.Items.Clear();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            reportServiceClient.ProcessReport();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            //var url = txtServiceURL.Text;
-            DateTime dtStart = DateTime.Now;
-
-            var url = "http://localhost:8085/GxRestService/paybill";
-            var request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET";
-            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
-            request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
-            var response = (HttpWebResponse)request.GetResponse();
-            string content = string.Empty;
-            using (var stream = response.GetResponseStream())
-            {
-                using (var sr = new StreamReader(stream))
-                {
-                    content = sr.ReadToEnd();
-                }
-            }
-            //var releases = JArray.Parse(content);
-            DateTime dtEnd = DateTime.Now;
-
-            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
-            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
-
-            lstResult.Items.Add("Restful Service Call:");
-            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            //lstResult.Items.Add(((double)(dtEnd.Subtract(dtStart).Seconds)).ToString() + " seconds processing time at Client");
-            //lstResult.Items.Add("\n");
-            lstResult.Items.Add(content);
-            lstResult.Items.Add("-------------------------------------------");
-            lstResult.Items.Add("\n");
-        }
-
-        private void Btn_V1NonRest_Click(object sender, EventArgs e)
-        {
-            DateTime dtStart = DateTime.Now;
-            var lst = client.RequestReplyOperationV1();
-            DateTime dtEnd = DateTime.Now;
-            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
-
-            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
-            lstResult.Items.Add("V1 Non Restful Service Call: Recieved data count:" + lst.Count().ToString());
-            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            lstResult.Items.Add("-------------------------------------------");
-            lstResult.Items.Add("\n");
-        }
-
-        private void Btn_V1RestDemo_Click(object sender, EventArgs e)
-        {
-            //var url = txtServiceURL.Text;
-            DateTime dtStart = DateTime.Now;
-
-            var url = "http://localhost:8085/GxRestService/RequestReplyOperation_RestV1";
-            var request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET";
-            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
-            request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
-            var response = (HttpWebResponse)request.GetResponse();
-            string content = string.Empty;
-            using (var stream = response.GetResponseStream())
-            {
-                using (var sr = new StreamReader(stream))
-                {
-                    content = sr.ReadToEnd();
-                }
-            }
-            var releases = JArray.Parse(content);
-            
-            DateTime dtEnd = DateTime.Now;
-
-            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
-            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
-
-            lstResult.Items.Add("V1 Restful Service Call: Recieved data count:" + releases.Count.ToString());
-            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            lstResult.Items.Add("-------------------------------------------");
-            lstResult.Items.Add("\n");
-        }
 
         private void Btn_GetCustomer_Click(object sender, EventArgs e)
         {
             DateTime dtStart = DateTime.Now;
             var lst = client.GetCustomerList();
+            gvData.DataSource = lst;
+
             DateTime dtEnd = DateTime.Now;
             long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
 
             double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
-            lstResult.Items.Add("V1 Non Restful Service Call: Received data count:" + lst.Count().ToString());
-            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            lstResult.Items.Add("-------------------------------------------");
-            lstResult.Items.Add("\n");
+
+            if (sb.Length > 0)
+                sb.AppendLine();
+
+            sb.AppendLine("Non Restful Service Call, Total " + lst.Count().ToString() + " row recieved.");
+            sb.AppendLine(res.ToString() + " Ticks, Processing time at client.");
+            sb.AppendLine(res1.ToString() + " Seconds, Processing time at client.");
+            txtMessage.Text = sb.ToString();
         }
 
         private void Btn_GetCustomer_Rest_Click(object sender, EventArgs e)
         {
             DateTime dtStart = DateTime.Now;
-
             var url = "http://localhost:8085/GxRestService/GetCustomerList_Rest";
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
@@ -193,16 +67,25 @@ namespace DNAClient
             }
             var releases = JArray.Parse(content);
 
+            gvData.DataSource = releases;
             DateTime dtEnd = DateTime.Now;
 
             long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
             double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
 
-            lstResult.Items.Add("V1 Restful Service Call: Received data count:" + releases.Count.ToString());
-            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
-            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            lstResult.Items.Add("-------------------------------------------");
-            lstResult.Items.Add("\n");
+            if (sb.Length > 0)
+                sb.AppendLine();
+            sb.AppendLine("Restful Service Call, Total " + releases.Count().ToString() + " row recieved.");
+            sb.AppendLine(res.ToString() + " Ticks, Processing time at client.");
+            sb.AppendLine(res1.ToString() + " Seconds, Processing time at client.");
+            txtMessage.Text = sb.ToString();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            sb = new StringBuilder();
+            txtMessage.Text = string.Empty;
+            gvData.DataSource = null;
         }
     }
 }

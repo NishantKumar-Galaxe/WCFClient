@@ -235,7 +235,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8095/GxService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>GSWX4002360@galaxy.lan</Upn>
+          <Upn>GSWX4001264@galaxy.lan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -244,7 +244,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8095/GxReportService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>GSWX4002360@galaxy.lan</Upn>
+          <Upn>GSWX4001264@galaxy.lan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
