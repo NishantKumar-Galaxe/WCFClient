@@ -60,6 +60,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddNewCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataModel" minOccurs="0" name="details" nillable="true" type="q3:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewCustomerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ProcessReport">
     <xs:complexType>
       <xs:sequence />
@@ -90,7 +104,7 @@
   <xs:element name="RequestReplyOperation_RestV1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataAccessLayer" minOccurs="0" name="RequestReplyOperation_RestV1Result" nillable="true" type="q3:ArrayOfEmployeeDetails" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataAccessLayer" minOccurs="0" name="RequestReplyOperation_RestV1Result" nillable="true" type="q4:ArrayOfEmployeeDetails" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -102,7 +116,21 @@
   <xs:element name="GetCustomerList_RestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataModel" minOccurs="0" name="GetCustomerList_RestResult" nillable="true" type="q4:ArrayOfCustomer" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DataModel" minOccurs="0" name="GetCustomerList_RestResult" nillable="true" type="q5:ArrayOfCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewCustomer_Rest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataModel" minOccurs="0" name="details" nillable="true" type="q6:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewCustomer_RestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewCustomer_RestResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

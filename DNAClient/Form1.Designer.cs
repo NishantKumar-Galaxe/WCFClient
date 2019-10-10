@@ -33,6 +33,8 @@
             this.btn_GetCustomer = new System.Windows.Forms.Button();
             this.gvData = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btn_AddNew = new System.Windows.Forms.Button();
+            this.btn_AddNewCustRest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,11 +86,33 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btn_AddNew
+            // 
+            this.btn_AddNew.Location = new System.Drawing.Point(12, 534);
+            this.btn_AddNew.Name = "btn_AddNew";
+            this.btn_AddNew.Size = new System.Drawing.Size(111, 23);
+            this.btn_AddNew.TabIndex = 17;
+            this.btn_AddNew.Text = "Add New Customer";
+            this.btn_AddNew.UseVisualStyleBackColor = true;
+            this.btn_AddNew.Click += new System.EventHandler(this.Btn_AddNew_Click);
+            // 
+            // btn_AddNewCustRest
+            // 
+            this.btn_AddNewCustRest.Location = new System.Drawing.Point(129, 534);
+            this.btn_AddNewCustRest.Name = "btn_AddNewCustRest";
+            this.btn_AddNewCustRest.Size = new System.Drawing.Size(160, 23);
+            this.btn_AddNewCustRest.TabIndex = 18;
+            this.btn_AddNewCustRest.Text = "Add New Customer Rest";
+            this.btn_AddNewCustRest.UseVisualStyleBackColor = true;
+            this.btn_AddNewCustRest.Click += new System.EventHandler(this.Btn_AddNewCustRest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 540);
+            this.ClientSize = new System.Drawing.Size(725, 562);
+            this.Controls.Add(this.btn_AddNewCustRest);
+            this.Controls.Add(this.btn_AddNew);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.gvData);
             this.Controls.Add(this.btn_GetCustomer);
@@ -108,6 +132,8 @@
         private System.Windows.Forms.Button btn_GetCustomer;
         private System.Windows.Forms.DataGridView gvData;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btn_AddNew;
+        private System.Windows.Forms.Button btn_AddNewCustRest;
     }
 }
 

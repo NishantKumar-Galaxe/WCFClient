@@ -286,6 +286,12 @@ namespace DNAClient.GxService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/GetCustomerList", ReplyAction="http://tempuri.org/ISimpleService/GetCustomerListResponse")]
         System.Threading.Tasks.Task<DNAClient.GxService.Customer[]> GetCustomerListAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/AddNewCustomer", ReplyAction="http://tempuri.org/ISimpleService/AddNewCustomerResponse")]
+        bool AddNewCustomer(DNAClient.GxService.Customer details);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/AddNewCustomer", ReplyAction="http://tempuri.org/ISimpleService/AddNewCustomerResponse")]
+        System.Threading.Tasks.Task<bool> AddNewCustomerAsync(DNAClient.GxService.Customer details);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -362,6 +368,14 @@ namespace DNAClient.GxService {
         public System.Threading.Tasks.Task<DNAClient.GxService.Customer[]> GetCustomerListAsync() {
             return base.Channel.GetCustomerListAsync();
         }
+        
+        public bool AddNewCustomer(DNAClient.GxService.Customer details) {
+            return base.Channel.AddNewCustomer(details);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddNewCustomerAsync(DNAClient.GxService.Customer details) {
+            return base.Channel.AddNewCustomerAsync(details);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -432,6 +446,12 @@ namespace DNAClient.GxService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/GetCustomerList_Rest", ReplyAction="http://tempuri.org/IRestfulDNA/GetCustomerList_RestResponse")]
         System.Threading.Tasks.Task<DNAClient.GxService.Customer[]> GetCustomerList_RestAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/AddNewCustomer_Rest", ReplyAction="http://tempuri.org/IRestfulDNA/AddNewCustomer_RestResponse")]
+        bool AddNewCustomer_Rest(DNAClient.GxService.Customer details);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRestfulDNA/AddNewCustomer_Rest", ReplyAction="http://tempuri.org/IRestfulDNA/AddNewCustomer_RestResponse")]
+        System.Threading.Tasks.Task<bool> AddNewCustomer_RestAsync(DNAClient.GxService.Customer details);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -483,6 +503,14 @@ namespace DNAClient.GxService {
         
         public System.Threading.Tasks.Task<DNAClient.GxService.Customer[]> GetCustomerList_RestAsync() {
             return base.Channel.GetCustomerList_RestAsync();
+        }
+        
+        public bool AddNewCustomer_Rest(DNAClient.GxService.Customer details) {
+            return base.Channel.AddNewCustomer_Rest(details);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddNewCustomer_RestAsync(DNAClient.GxService.Customer details) {
+            return base.Channel.AddNewCustomer_RestAsync(details);
         }
     }
 }
