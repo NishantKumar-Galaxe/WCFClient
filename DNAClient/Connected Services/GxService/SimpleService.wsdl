@@ -62,7 +62,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAccessLaer" />
+      <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+      <xsd:import schemaLocation="http://localhost:8085/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataModel" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ISimpleService_DoWork_InputMessage">
@@ -89,6 +90,12 @@
   <wsdl:message name="ISimpleService_OneWayOperationDemo_InputMessage">
     <wsdl:part name="parameters" element="tns:OneWayOperationDemo" />
   </wsdl:message>
+  <wsdl:message name="ISimpleService_GetCustomerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerList" />
+  </wsdl:message>
+  <wsdl:message name="ISimpleService_GetCustomerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerListResponse" />
+  </wsdl:message>
   <wsdl:message name="IReportService_ProcessReport_InputMessage">
     <wsdl:part name="parameters" element="tns:ProcessReport" />
   </wsdl:message>
@@ -106,6 +113,12 @@
   </wsdl:message>
   <wsdl:message name="IRestfulDNA_RequestReplyOperation_RestV1_OutputMessage">
     <wsdl:part name="parameters" element="tns:RequestReplyOperation_RestV1Response" />
+  </wsdl:message>
+  <wsdl:message name="IRestfulDNA_GetCustomerList_Rest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerList_Rest" />
+  </wsdl:message>
+  <wsdl:message name="IRestfulDNA_GetCustomerList_Rest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerList_RestResponse" />
   </wsdl:message>
   <wsdl:portType name="ISimpleService">
     <wsdl:operation name="DoWork">
@@ -126,6 +139,10 @@
     <wsdl:operation name="OneWayOperationDemo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/OneWayOperationDemo" message="tns:ISimpleService_OneWayOperationDemo_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCustomerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISimpleService/GetCustomerList" message="tns:ISimpleService_GetCustomerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISimpleService/GetCustomerListResponse" message="tns:ISimpleService_GetCustomerList_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IReportService">
     <wsdl:operation name="ProcessReport">
@@ -141,6 +158,10 @@
     <wsdl:operation name="RequestReplyOperation_RestV1">
       <wsdl:input wsaw:Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestV1" message="tns:IRestfulDNA_RequestReplyOperation_RestV1_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRestfulDNA/RequestReplyOperation_RestV1Response" message="tns:IRestfulDNA_RequestReplyOperation_RestV1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerList_Rest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRestfulDNA/GetCustomerList_Rest" message="tns:IRestfulDNA_GetCustomerList_Rest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRestfulDNA/GetCustomerList_RestResponse" message="tns:IRestfulDNA_GetCustomerList_Rest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISimpleService" type="tns:ISimpleService">
@@ -185,6 +206,15 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="GetCustomerList">
+      <soap12:operation soapAction="http://tempuri.org/ISimpleService/GetCustomerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IReportService" type="tns:IReportService">
     <wsp:PolicyReference URI="#NetTcpBinding_IReportService_policy" />
@@ -205,7 +235,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8095/GxService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>SATYAVIRWIN10\satya</Upn>
+          <Upn>GSWX4002360@galaxy.lan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -214,7 +244,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8095/GxReportService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>SATYAVIRWIN10\satya</Upn>
+          <Upn>GSWX4002360@galaxy.lan</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

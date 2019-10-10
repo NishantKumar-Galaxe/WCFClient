@@ -39,11 +39,13 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btn_V1RestDemo = new System.Windows.Forms.Button();
+            this.btn_GetCustomer_Rest = new System.Windows.Forms.Button();
+            this.btn_GetCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(611, 10);
+            this.button1.Location = new System.Drawing.Point(438, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 0;
@@ -53,7 +55,7 @@
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(93, 23);
+            this.txtResult.Location = new System.Drawing.Point(93, 10);
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(339, 20);
             this.txtResult.TabIndex = 2;
@@ -61,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 23);
+            this.label1.Location = new System.Drawing.Point(23, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 3;
@@ -70,14 +72,14 @@
             // lstResult
             // 
             this.lstResult.FormattingEnabled = true;
-            this.lstResult.Location = new System.Drawing.Point(12, 68);
+            this.lstResult.Location = new System.Drawing.Point(9, 37);
             this.lstResult.Name = "lstResult";
-            this.lstResult.Size = new System.Drawing.Size(710, 394);
+            this.lstResult.Size = new System.Drawing.Size(709, 355);
             this.lstResult.TabIndex = 4;
             // 
             // btn_V1NonRest
             // 
-            this.btn_V1NonRest.Location = new System.Drawing.Point(11, 498);
+            this.btn_V1NonRest.Location = new System.Drawing.Point(11, 429);
             this.btn_V1NonRest.Name = "btn_V1NonRest";
             this.btn_V1NonRest.Size = new System.Drawing.Size(173, 23);
             this.btn_V1NonRest.TabIndex = 5;
@@ -87,7 +89,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(369, 469);
+            this.button3.Location = new System.Drawing.Point(369, 400);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(173, 23);
             this.button3.TabIndex = 6;
@@ -97,7 +99,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(611, 39);
+            this.button4.Location = new System.Drawing.Point(555, 7);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(111, 23);
             this.button4.TabIndex = 7;
@@ -107,7 +109,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(548, 469);
+            this.button5.Location = new System.Drawing.Point(548, 400);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(173, 23);
             this.button5.TabIndex = 8;
@@ -117,7 +119,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(190, 469);
+            this.button7.Location = new System.Drawing.Point(190, 400);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(173, 23);
             this.button7.TabIndex = 11;
@@ -127,7 +129,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(12, 469);
+            this.button6.Location = new System.Drawing.Point(12, 400);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(173, 23);
             this.button6.TabIndex = 5;
@@ -137,7 +139,7 @@
             // 
             // btn_V1RestDemo
             // 
-            this.btn_V1RestDemo.Location = new System.Drawing.Point(190, 498);
+            this.btn_V1RestDemo.Location = new System.Drawing.Point(190, 429);
             this.btn_V1RestDemo.Name = "btn_V1RestDemo";
             this.btn_V1RestDemo.Size = new System.Drawing.Size(173, 23);
             this.btn_V1RestDemo.TabIndex = 11;
@@ -145,11 +147,33 @@
             this.btn_V1RestDemo.UseVisualStyleBackColor = true;
             this.btn_V1RestDemo.Click += new System.EventHandler(this.Btn_V1RestDemo_Click);
             // 
+            // btn_GetCustomer_Rest
+            // 
+            this.btn_GetCustomer_Rest.Location = new System.Drawing.Point(190, 458);
+            this.btn_GetCustomer_Rest.Name = "btn_GetCustomer_Rest";
+            this.btn_GetCustomer_Rest.Size = new System.Drawing.Size(173, 23);
+            this.btn_GetCustomer_Rest.TabIndex = 12;
+            this.btn_GetCustomer_Rest.Text = "Get Customer Rest";
+            this.btn_GetCustomer_Rest.UseVisualStyleBackColor = true;
+            this.btn_GetCustomer_Rest.Click += new System.EventHandler(this.Btn_GetCustomer_Rest_Click);
+            // 
+            // btn_GetCustomer
+            // 
+            this.btn_GetCustomer.Location = new System.Drawing.Point(9, 458);
+            this.btn_GetCustomer.Name = "btn_GetCustomer";
+            this.btn_GetCustomer.Size = new System.Drawing.Size(175, 23);
+            this.btn_GetCustomer.TabIndex = 13;
+            this.btn_GetCustomer.Text = "Get Customer";
+            this.btn_GetCustomer.UseVisualStyleBackColor = true;
+            this.btn_GetCustomer.Click += new System.EventHandler(this.Btn_GetCustomer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 540);
+            this.Controls.Add(this.btn_GetCustomer);
+            this.Controls.Add(this.btn_GetCustomer_Rest);
             this.Controls.Add(this.btn_V1RestDemo);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
@@ -181,6 +205,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn_V1RestDemo;
+        private System.Windows.Forms.Button btn_GetCustomer_Rest;
+        private System.Windows.Forms.Button btn_GetCustomer;
     }
 }
 

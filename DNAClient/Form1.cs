@@ -112,9 +112,6 @@ namespace DNAClient
 
         private void Btn_V1NonRest_Click(object sender, EventArgs e)
         {
-            //lstResult.Items.Add($"Request-Reply Operation Started at @ {DateTime.Now.ToString()}");
-            //button2.Enabled = false;
-
             DateTime dtStart = DateTime.Now;
             var lst = client.RequestReplyOperationV1();
             DateTime dtEnd = DateTime.Now;
@@ -157,9 +154,53 @@ namespace DNAClient
             lstResult.Items.Add("V1 Restful Service Call: Recieved data count:" + releases.Count.ToString());
             lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
             lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
-            //lstResult.Items.Add(((double)(dtEnd.Subtract(dtStart).Seconds)).ToString() + " seconds processing time at Client");
-            //lstResult.Items.Add("\n");
-            //lstResult.Items.Add(content);
+            lstResult.Items.Add("-------------------------------------------");
+            lstResult.Items.Add("\n");
+        }
+
+        private void Btn_GetCustomer_Click(object sender, EventArgs e)
+        {
+            DateTime dtStart = DateTime.Now;
+            var lst = client.GetCustomerList();
+            DateTime dtEnd = DateTime.Now;
+            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
+
+            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
+            lstResult.Items.Add("V1 Non Restful Service Call: Received data count:" + lst.Count().ToString());
+            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
+            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
+            lstResult.Items.Add("-------------------------------------------");
+            lstResult.Items.Add("\n");
+        }
+
+        private void Btn_GetCustomer_Rest_Click(object sender, EventArgs e)
+        {
+            DateTime dtStart = DateTime.Now;
+
+            var url = "http://localhost:8085/GxRestService/GetCustomerList_Rest";
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
+            request.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
+            var response = (HttpWebResponse)request.GetResponse();
+            string content = string.Empty;
+            using (var stream = response.GetResponseStream())
+            {
+                using (var sr = new StreamReader(stream))
+                {
+                    content = sr.ReadToEnd();
+                }
+            }
+            var releases = JArray.Parse(content);
+
+            DateTime dtEnd = DateTime.Now;
+
+            long res = dtEnd.Subtract(dtStart).Ticks;  //.  Seconds);
+            double res1 = dtEnd.Subtract(dtStart).TotalSeconds;
+
+            lstResult.Items.Add("V1 Restful Service Call: Received data count:" + releases.Count.ToString());
+            lstResult.Items.Add(res.ToString() + " Ticks processing time at client");
+            lstResult.Items.Add(res1.ToString() + " Total seconds processing time at client");
             lstResult.Items.Add("-------------------------------------------");
             lstResult.Items.Add("\n");
         }

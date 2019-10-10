@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8085/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAccessLaer" />
+  <xs:import schemaLocation="http://localhost:8085/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+  <xs:import schemaLocation="http://localhost:8085/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataModel" />
   <xs:element name="DoWork">
     <xs:complexType>
       <xs:sequence />
@@ -38,13 +39,25 @@
   <xs:element name="RequestReplyOperationV1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccessLaer" minOccurs="0" name="RequestReplyOperationV1Result" nillable="true" type="q1:ArrayOfEmployeeDetails" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccessLayer" minOccurs="0" name="RequestReplyOperationV1Result" nillable="true" type="q1:ArrayOfEmployeeDetails" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OneWayOperationDemo">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataModel" minOccurs="0" name="GetCustomerListResult" nillable="true" type="q2:ArrayOfCustomer" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ProcessReport">
@@ -77,7 +90,19 @@
   <xs:element name="RequestReplyOperation_RestV1Response">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataAccessLaer" minOccurs="0" name="RequestReplyOperation_RestV1Result" nillable="true" type="q2:ArrayOfEmployeeDetails" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataAccessLayer" minOccurs="0" name="RequestReplyOperation_RestV1Result" nillable="true" type="q3:ArrayOfEmployeeDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerList_Rest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerList_RestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataModel" minOccurs="0" name="GetCustomerList_RestResult" nillable="true" type="q4:ArrayOfCustomer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
