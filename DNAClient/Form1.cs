@@ -95,7 +95,7 @@ namespace DNAClient
             DateTime dtStart = DateTime.Now;
             var cust = GetCustObject();
             var lst = client.AddNewCustomer(cust);
-            
+
             DateTime dtEnd = DateTime.Now;
             long res = dtEnd.Subtract(dtStart).Ticks;
 
@@ -115,7 +115,7 @@ namespace DNAClient
         {
             DateTime dtStart = DateTime.Now;
             var url = "http://localhost:8085/GxRestService/AddNewCustomer_Rest";
-            
+
             var cust = GetCustObject();
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ContentType = "application/json";
@@ -162,6 +162,14 @@ namespace DNAClient
             cust.Fax = "0921 - 12 34 67";
             return cust;
 
+        }
+
+        private void btnConcurrency_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= 5; i++)
+            {
+                client.CheckConcurrencyBehaviour(i);
+            }
         }
     }
 }

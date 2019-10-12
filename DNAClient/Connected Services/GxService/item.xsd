@@ -74,6 +74,13 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CheckConcurrencyBehaviour">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ProcessReport">
     <xs:complexType>
       <xs:sequence />

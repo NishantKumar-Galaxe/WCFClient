@@ -35,6 +35,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btn_AddNew = new System.Windows.Forms.Button();
             this.btn_AddNewCustRest = new System.Windows.Forms.Button();
+            this.btnConcurrency = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,11 +107,22 @@
             this.btn_AddNewCustRest.UseVisualStyleBackColor = true;
             this.btn_AddNewCustRest.Click += new System.EventHandler(this.Btn_AddNewCustRest_Click);
             // 
+            // btnConcurrency
+            // 
+            this.btnConcurrency.Location = new System.Drawing.Point(295, 534);
+            this.btnConcurrency.Name = "btnConcurrency";
+            this.btnConcurrency.Size = new System.Drawing.Size(160, 23);
+            this.btnConcurrency.TabIndex = 19;
+            this.btnConcurrency.Text = "Concurrency";
+            this.btnConcurrency.UseVisualStyleBackColor = true;
+            this.btnConcurrency.Click += new System.EventHandler(this.btnConcurrency_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 562);
+            this.Controls.Add(this.btnConcurrency);
             this.Controls.Add(this.btn_AddNewCustRest);
             this.Controls.Add(this.btn_AddNew);
             this.Controls.Add(this.btnClear);
@@ -134,6 +146,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btn_AddNew;
         private System.Windows.Forms.Button btn_AddNewCustRest;
+        private System.Windows.Forms.Button btnConcurrency;
     }
 }
 

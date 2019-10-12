@@ -292,6 +292,12 @@ namespace DNAClient.GxService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISimpleService/AddNewCustomer", ReplyAction="http://tempuri.org/ISimpleService/AddNewCustomerResponse")]
         System.Threading.Tasks.Task<bool> AddNewCustomerAsync(DNAClient.GxService.Customer details);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/CheckConcurrencyBehaviour")]
+        void CheckConcurrencyBehaviour(int clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISimpleService/CheckConcurrencyBehaviour")]
+        System.Threading.Tasks.Task CheckConcurrencyBehaviourAsync(int clientId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -375,6 +381,14 @@ namespace DNAClient.GxService {
         
         public System.Threading.Tasks.Task<bool> AddNewCustomerAsync(DNAClient.GxService.Customer details) {
             return base.Channel.AddNewCustomerAsync(details);
+        }
+        
+        public void CheckConcurrencyBehaviour(int clientId) {
+            base.Channel.CheckConcurrencyBehaviour(clientId);
+        }
+        
+        public System.Threading.Tasks.Task CheckConcurrencyBehaviourAsync(int clientId) {
+            return base.Channel.CheckConcurrencyBehaviourAsync(clientId);
         }
     }
     
