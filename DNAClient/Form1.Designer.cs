@@ -42,11 +42,11 @@
             // txtMessage
             // 
             this.txtMessage.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMessage.Location = new System.Drawing.Point(12, 448);
+            this.txtMessage.Location = new System.Drawing.Point(724, 12);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMessage.Size = new System.Drawing.Size(589, 80);
+            this.txtMessage.Size = new System.Drawing.Size(483, 502);
             this.txtMessage.TabIndex = 2;
             // 
             // btn_GetCustomer_Rest
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 562);
+            this.ClientSize = new System.Drawing.Size(1219, 562);
             this.Controls.Add(this.btnConcurrency);
             this.Controls.Add(this.btn_AddNewCustRest);
             this.Controls.Add(this.btn_AddNew);

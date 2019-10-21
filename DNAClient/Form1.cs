@@ -24,7 +24,7 @@ namespace DNAClient
         public Form1()
         {
             InitializeComponent();
-            client = new GxService.SimpleServiceClient();
+            //client = new GxService.SimpleServiceClient();
             reportServiceClient = new GxService.ReportServiceClient();
         }
 
@@ -33,7 +33,9 @@ namespace DNAClient
         private void Btn_GetCustomer_Click(object sender, EventArgs e)
         {
             DateTime dtStart = DateTime.Now;
-            var lst = client.GetCustomerList();
+            GxService.SimpleServiceClient client1 = new GxService.SimpleServiceClient();
+
+            var lst = client1.GetCustomerList();
             gvData.DataSource = lst;
 
             DateTime dtEnd = DateTime.Now;
@@ -48,6 +50,8 @@ namespace DNAClient
             sb.AppendLine(res.ToString() + " Ticks, Processing time at client.");
             sb.AppendLine(res1.ToString() + " Seconds, Processing time at client.");
             txtMessage.Text = sb.ToString();
+
+            client1.Close();
         }
 
         private void Btn_GetCustomer_Rest_Click(object sender, EventArgs e)
@@ -166,7 +170,8 @@ namespace DNAClient
 
         private void btnConcurrency_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i <= 5; i++)
+            GxService.SimpleServiceClient client = new GxService.SimpleServiceClient();
+            for (int i = 1; i <= 20; i++)
             {
                 client.CheckConcurrencyBehaviour(i);
             }
